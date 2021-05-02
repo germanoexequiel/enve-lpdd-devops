@@ -1,0 +1,15 @@
+---
+# tasks file for packer
+- name: add the HashiCorp GPG key
+  shell: |
+    curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+
+- name: add the official HashiCorp Linux repository
+  become: yes
+  shell: |
+    apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+
+- name: update and install
+  become: yes
+  shell: |
+    apt-get update && sudo apt-get install packer

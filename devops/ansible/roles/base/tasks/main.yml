@@ -1,0 +1,33 @@
+---
+# update apt cache
+- name: update apt cache
+  apt: update_cache=yes
+
+# upgrade all packages
+- name: upgrade all packages
+  apt: upgrade=dist
+
+# install software base
+- name: install software base
+  apt: name={{ item }} state=latest update_cache=yes 
+  with_items:
+    - sudo
+    - acl
+    - build-essential
+    - iputils-ping
+    - net-tools
+    - wget
+    - curl
+    - unzip
+    - git
+    - less
+    - vim
+    - apt-transport-https
+    - maven
+    - expect
+    - xvfb
+    - jq
+    - gnupg2
+    - pass
+    - python
+    - python-docker

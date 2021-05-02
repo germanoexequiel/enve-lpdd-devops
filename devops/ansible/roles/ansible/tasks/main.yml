@@ -1,0 +1,12 @@
+---
+- name: update cache
+  command: sudo apt update
+
+- name: install dependencies
+  command: sudo apt install software-properties-common
+
+- name: add repository
+  command: sudo apt-add-repository --yes --update ppa:ansible/ansible
+
+- name: apt install ansible
+  command: sudo apt install ansible -y
